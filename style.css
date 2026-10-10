@@ -120,9 +120,9 @@ h2 { margin: 0 0 8px; font-size: 1.1rem; }
 }
 #avatar {
   flex: none;
-  width: 76px;
-  height: 76px;
-  font-size: 2.8rem;
+  width: 100px;
+  height: 100px;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,6 +145,7 @@ h2 { margin: 0 0 8px; font-size: 1.1rem; }
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 16px;
+  font-size: 30px;
 }
 #bubble::before {
   content: "";
@@ -330,5 +331,38 @@ h2 { margin: 0 0 8px; font-size: 1.1rem; }
 
 @media (max-width: 520px) {
   #hand { font-size: 6rem; }
-  #avatar { width: 56px; height: 56px; font-size: 2rem; }
+  #avatar { position: absolute; top: 70px; z-index: 1; width: 80px; height: 80px; background-color: white; font-size: 2rem; }
+  #board-wrap {
+    flex-direction: column;
+    margin-top: 80px;
+  }
+
+  #bubble {    
+    position: absolute;
+    left: 23%;
+  }
+
+  .scoreboard-flex {
+    order: 2;
+  }
+
+#audio-controls {
+  right: 100px;
+}
+
+  #screen-start .img-header img {
+    width: 350px;
+  }
+
+  .difficulty {
+    flex-direction: column;
+  }
+
+  body {
+    background-position: right;
+    overflow: auto;
+  }
+  .top {
+    margin-top: 20px;
+  }
 }

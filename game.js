@@ -186,10 +186,10 @@ function say(key) {
   $('bubble-text').textContent = pick(MESSAGES[key]);
 }
 
-function applyBubbleSetting() {
-  $('bubble').classList.toggle('hidden', !settings.bubble);
-  $('btn-bubble').textContent = '💬 Bublina: ' + (settings.bubble ? 'ano' : 'ne');
-}
+// function applyBubbleSetting() {
+//   $('bubble').classList.toggle('hidden', !settings.bubble);
+//   $('btn-bubble').textContent = settings.bubble ? '❌' : '💬';
+// }
 
 function applyAudioButtons() {
   $('btn-sfx').classList.toggle('off', !settings.sfx);
@@ -492,7 +492,7 @@ function startGame() {
   firstMove = true;
   buildBoard();
   updateScore();
-  applyBubbleSetting();
+  // applyBubbleSetting();
   show('screen-game');
   gameLoop(gameId);
 }
@@ -540,11 +540,11 @@ document.querySelectorAll('.size-btn').forEach(b => {
   });
 });
 
-$('btn-bubble').addEventListener('click', () => {
-  settings.bubble = !settings.bubble;
-  saveSettings();
-  applyBubbleSetting();
-});
+// $('btn-bubble').addEventListener('click', () => {
+//   settings.bubble = !settings.bubble;
+//   saveSettings();
+//   // applyBubbleSetting();
+// });
 
 $('btn-sfx').addEventListener('click', () => {
   settings.sfx = !settings.sfx;
@@ -580,5 +580,5 @@ function initWaveText() {
 initWaveText();
 
 applySizeButtons();
-applyBubbleSetting();
+// applyBubbleSetting();
 applyAudioButtons();
