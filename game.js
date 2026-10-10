@@ -301,7 +301,7 @@ function flip(card, up) {
 
 /* Vyhodnotí dvojici otočených karet. Vrací true, pokud je to pár. */
 async function resolvePair(a, b, gid) {
-  await pause(900, gid);
+  await pause(1800, gid);
   if (a.pair === b.pair) {
     a.matched = b.matched = true;
     a.el.classList.add('matched');
