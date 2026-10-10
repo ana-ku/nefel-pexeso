@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nefér PEXESO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ovládání zvuku (je vidět na všech obrazovkách) -->
+  <div id="audio-controls">
+    <button id="btn-sfx" class="icon-btn" title="Zvukové efekty">🔊 Efekty</button>
+    <button id="btn-music" class="icon-btn" title="Hudba">🎵 Hudba</button>
+  </div>
+
+  <!-- 1) ÚVODNÍ OBRAZOVKA -->
+  <section id="screen-start" class="screen active">
+    <div class="img-header"> 
+      <img src="obrazky/img-header-1.png">
+    </div>
+<!--     <p class="subtitle">Hraj proti N*ně</p>
+ -->
+    <button id="btn-new" class="btn btn-primary wave">Nová hra</button>
+
+    <div class="difficulty-box">
+      <div class="difficulty" role="group" aria-label="Obtížnost">
+        <button class="btn size-btn" data-size="4">4 × 4</button>
+        <button class="btn size-btn" data-size="6">6 × 6</button>
+        <button class="btn size-btn" data-size="8">8 × 8</button>
+        <button class="btn size-btn" data-size="2">test</button>
+      </div>
+    </div>
+
+    <!-- <button id="btn-credits" class="btn">Credits</button> -->
+  </section>
+
+  <!-- CREDITS -->
+  <!-- <section id="screen-credits" class="screen">
+    <h1>Credits</h1>
+    <div class="credits-text">
+      <p><b>Nápad a design pravidel:</b> (doplň své jméno)</p>
+      <p><b>Programování:</b> HTML, CSS, JavaScript</p>
+      <p><b>Grafika:</b> emoji</p>
+      <p><b>Zvuky a hudba:</b> generované přímo v prohlížeči (Web Audio API)</p>
+    </div>
+    <button id="btn-credits-back" class="btn">Zpět</button>
+  </section> -->
+
+  <!-- 2) HRACÍ PLOCHA -->
+  <section id="screen-game" class="screen">
+    <div class="top">
+      <div id="avatar">
+        <img src="obrazky/green-happy.png" alt="">
+      </div>
+      <div id="bubble"><span id="bubble-text"></span></div>
+    </div>
+
+    <div class="scoreboard">
+      <div id="turn" class="turn">
+
+      </div>
+    
+    </div>
+
+    <div id="board-wrap">
+      <div class="scoreboard-flex">
+          <span>Ty <b id="score-player">0</b></span>
+
+      </div>
+
+      <div id="board"></div>
+
+      <div class="scoreboard-flex">
+          <span> N*NA <b id="score-computer">0</b></span>
+
+      </div>
+
+      <div id="hand">🖐️</div>
+    </div>
+
+    <div class="bottom">
+      <button id="btn-menu" class="btn small">Menu</button>
+      <button id="btn-bubble" class="btn small">💬 Bublina: ano</button>
+    </div>
+  </section>
+
+  <!-- 3) KONEC HRY -->
+  <section id="screen-end" class="screen">
+    <h1 id="end-title" class="end-title">PROHRÁLA JSI,<br>HURÁ!<br></h1>
+    <p id="end-score" class="subtitle"></p>
+    <div class="row">
+      <button id="btn-again" class="btn btn-primary">Hrát znovu</button>
+      <button id="btn-end-menu" class="btn">Menu</button>
+    </div>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>
