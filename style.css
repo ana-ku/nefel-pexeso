@@ -296,19 +296,18 @@ h2 { margin: 0 0 8px; font-size: 1.1rem; }
   position: absolute;
   top: 50%;
   left: 110%;
-  font-size: 9rem;
-  line-height: 1;
   z-index: 20;
   pointer-events: none;
+  transform: translate(-50%, -50%);   /* pevné natočení, během jízdy se nemění */
   filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.5));
 }
-#hand.sweep { display: block; animation: sweep 1.8s ease-in-out forwards; }
+#hand img {
+  width: 200px;
+}
+#hand.sweep { display: block; animation: sweep 1.8s linear forwards; }
 @keyframes sweep {
-  0%   { left: 110%; transform: translate(-50%, -50%) rotate(-60deg); }
-  35%  { left: 70%;  transform: translate(-50%, -50%) rotate(-85deg); }
-  50%  { left: 30%;  transform: translate(-50%, -50%) rotate(-40deg); }
-  65%  { left: 70%;  transform: translate(-50%, -50%) rotate(-85deg); }
-  100% { left: -20%; transform: translate(-50%, -50%) rotate(-60deg); }
+  from { left: 110%; }    /* začíná za pravým okrajem */
+  to   { left: -20%; }    /* končí za levým okrajem */
 }
 
 #board.scramble .card:not(.matched) { animation: jiggle 0.25s infinite; }
