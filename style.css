@@ -16,7 +16,6 @@ body {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-  overflow: hidden;
 }
 
 /* ---------- Obrazovky ---------- */
@@ -359,7 +358,6 @@ h2 { margin: 0 0 8px; font-size: 1.1rem; }
 
   body {
     background-position: right;
-    overflow: auto;
   }
   .top {
     margin-top: 20px;
