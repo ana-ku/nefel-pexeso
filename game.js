@@ -25,6 +25,14 @@
   ['obrazky/zaplat-skolku.png',      'obrazky/zaplat-skolku.png'],       
   ['obrazky/zeme-hori.png',      'obrazky/slova-chybi.png'],      
   ['obrazky/prvni-odmitani.png',      'obrazky/prvni-odmitani.png'],       
+  ['obrazky/danove-priznani.png',      'obrazky/priznani-vycerpani.png'],       
+  ['obrazky/sbirat-koprivy.png',      'obrazky/jit-na-vandr.png'],       
+  ['obrazky/nekdy-je-ksmichu.png',      'obrazky/jsme-mali.png'],       
+  ['obrazky/kez-zijes.png',      'obrazky/kez-zijes.png'],       
+  ['obrazky/neni-cas.png',      'obrazky/na-nic-jineho.png'],       
+  ['obrazky/malo-jsem-spala.png',      'obrazky/malo-jsem-spala.png'],       
+  ['obrazky/neni-prostor.png',      'obrazky/cela-horis.png'],       
+  ['obrazky/vypnout-hlavu.png',      'obrazky/vypnout-hlavu.png'],       
 
   // ...
 ];
