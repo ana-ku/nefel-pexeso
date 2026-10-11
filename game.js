@@ -132,6 +132,28 @@ const sfx = {
   win()    { arpeggio([523, 659, 784, 1047, 784, 1047], 0.13, 0.25, 'triangle', 0.25); }
 };
 
+/* Zvuky ze souborů (cesty jsou od index.html) */
+const SOUND_FILES = {
+  hand:        'zvuky/neee.m4a',
+  askAdvice:   'zvuky/mami-plosim.m4a',
+  computerHit: 'zvuky/yes.m4a'
+};
+
+const sounds = {};
+Object.entries(SOUND_FILES).forEach(([name, src]) => {
+  const a = new Audio(src);
+  a.preload = 'auto';              // načte se předem, ať se při přehrání neopozdí
+  sounds[name] = a;
+});
+
+function playSound(name) {
+  if (!settings.sfx) return;       // respektuje vypnutí efektů
+  const a = sounds[name];
+  if (!a) return;
+  a.currentTime = 0;               // přehraje od začátku, i když ještě zní
+  a.play().catch(() => {});        // chybějící soubor nebo blokace prohlížeče nic nerozbije
+}
+
 /* Jednoduchá hudba na pozadí: opakující se smyčka čtyř akordů */
 const MUSIC_BARS = [
   [261.63, 329.63, 392.00, 329.63],
@@ -350,9 +372,10 @@ async function handShuffle(gid) {
   say('unfair');
   await pause(1800, gid);
 
+
   $('hand').classList.add('sweep');
   board.classList.add('scramble');
-  sfx.hand();
+  playSound('hand');
   await pause(900, gid);                       // ruka je právě nad plochou
 
   // const free = cards.filter(c => !c.matched);
@@ -422,7 +445,7 @@ async function computerTurn(gid) {
     // 50 %: počítač se zeptá hráče (pravidlo B)
     advised = true;
     say('askAdvice');
-    sfx.think();
+    playSound('askAdvice');
     board.classList.add('advice');
     second = await waitCard();
     board.classList.remove('advice');
@@ -451,6 +474,7 @@ async function computerTurn(gid) {
   if (ok) {
     computerPairs++;
     updateScore();
+    playSound('computerHit');
     if (remaining() > 0) {
       say(advised ? 'adviceGood' : 'computerHit');   // poděkování až teď
       await pause(1800, gid);
